@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="7"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tituloTLista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TituloTarea"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/fechaTLista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FechaTarea" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="5dp" />
+
+        <TextView
+            android:id="@+id/descripcionTLista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="DescripcionTarea"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imagePrioridadLista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+</LinearLayout>
