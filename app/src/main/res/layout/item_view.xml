@@ -3,45 +3,62 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="vertical"
+    android:padding="8dp">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="7"
-        android:orientation="vertical">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:background="#B8B8B8"
+        android:padding="5dp">
 
-        <TextView
-            android:id="@+id/tituloTLista"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TituloTarea"
-            android:textSize="20sp" />
+            android:layout_weight="7"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/fechaTLista"
+            <TextView
+                android:id="@+id/tituloTLista"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TituloTarea"
+                android:textSize="20sp"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/fechaTLista"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FechaTarea" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="5dp" />
+
+            <TextView
+                android:id="@+id/descripcionTLista"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lines="3"
+                android:text="DescripcionTarea"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imagePrioridadLista"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="FechaTarea" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="5dp" />
-
-        <TextView
-            android:id="@+id/descripcionTLista"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="DescripcionTarea"
-            android:textSize="16sp" />
-
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/ic_launcher_foreground" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imagePrioridadLista"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_weight="5" />
 
 </LinearLayout>

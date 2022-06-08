@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/mario/AndroidStudioProjects/AppRoomAndroid/app/src/main/res/drawable/icon_circle_green.xml" value="0.1" />
+        <entry key="..\:/Users/mario/AndroidStudioProjects/AppRoomAndroid/app/src/main/res/drawable/icon_circle_red.xml" value="0.139" />
+        <entry key="..\:/Users/mario/AndroidStudioProjects/AppRoomAndroid/app/src/main/res/drawable/icon_circle_yellow.xml" value="0.139" />
+        <entry key="..\:/Users/mario/AndroidStudioProjects/AppRoomAndroid/app/src/main/res/layout/dialogo_add.xml" value="0.2657407407407407" />
+        <entry key="..\:/Users/mario/AndroidStudioProjects/AppRoomAndroid/app/src/main/res/layout/item_view.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/mario/AndroidStudioProjects/PracticaExamen2/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/mario/AndroidStudioProjects/PracticaExamen2/app/src/main/res/layout/dialogo_add.xml" value="0.25" />
         <entry key="..\:/Users/mario/AndroidStudioProjects/PracticaExamen2/app/src/main/res/layout/fragment_fragmento_lista.xml" value="0.33" />

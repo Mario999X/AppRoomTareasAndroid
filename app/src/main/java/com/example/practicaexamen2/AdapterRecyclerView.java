@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -50,15 +51,30 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
 
         switch (opcionSpinner){
             case "Prioridad Baja":
-                holder.imagePrioridadLista.setBackgroundResource(R.drawable.icon_circle_green);
+                holder.imagePrioridadLista.setImageResource(R.drawable.icon_circle_green);
                 break;
             case "Prioridad Media":
-                holder.imagePrioridadLista.setBackgroundResource(R.drawable.icon_circle_yellow);
+                holder.imagePrioridadLista.setImageResource(R.drawable.icon_circle_yellow);
                 break;
             case "Prioridad Alta":
-                holder.imagePrioridadLista.setBackgroundResource(R.drawable.icon_circle_red);
+                holder.imagePrioridadLista.setImageResource(R.drawable.icon_circle_red);
 
         }
+
+        holder.imagePrioridadLista.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int sId = item.getId();
+                database = DataRoomDB.getInstance(context);
+                database.dataDao().deleteTarea(sId);
+                tareaEntities.clear();
+                tareaEntities.addAll(database.dataDao().selectTareas());
+                Toast.makeText(context, "Tarea Eliminada", Toast.LENGTH_SHORT).show();
+                notifyDataSetChanged();
+            }
+        });
+
+
 
     }
 

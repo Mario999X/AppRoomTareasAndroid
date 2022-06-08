@@ -31,7 +31,7 @@ import java.util.List;
 
 public class FragmentoLista extends Fragment {
 
-    static ImageView imageAdd;
+    ImageView imageAdd;
 
     DataRoomDB database;
 
