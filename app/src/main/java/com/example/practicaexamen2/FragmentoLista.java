@@ -24,9 +24,8 @@ import android.widget.Toast;
 import com.example.practicaexamen2.data.DataRoomDB;
 import com.example.practicaexamen2.data.TareaEntity;
 
-import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class FragmentoLista extends Fragment {
@@ -59,6 +58,7 @@ public class FragmentoLista extends Fragment {
 
         imageAdd = main.findViewById(R.id.imageViewAdd);
         recycler = main.findViewById(R.id.recycler);
+
         llm = new LinearLayoutManager(getContext());
         recycler.setLayoutManager(llm);
         adapterView = new AdapterRecyclerView(tareaEntities, getActivity());
@@ -67,17 +67,19 @@ public class FragmentoLista extends Fragment {
         imageAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // CARGAMOS DIALOGO
+                // -- CARGAMOS DIALOGO --
                 Dialog dialog = new Dialog(getContext());
                 dialog.setContentView(R.layout.dialogo_add);
+
                 WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
                 lp.copyFrom(dialog.getWindow().getAttributes());
                 lp.width = WindowManager.LayoutParams.MATCH_PARENT;
                 lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+
                 dialog.show();
                 dialog.getWindow().setAttributes(lp);
 
-                // VARIABLES DIALOGO
+                // -- VARIABLES DIALOGO --
                 EditText editTextTitulo = dialog.findViewById(R.id.editTextTitulo);
                 EditText editTextDescripcion = dialog.findViewById(R.id.editTextDescripcion);
 
@@ -86,6 +88,7 @@ public class FragmentoLista extends Fragment {
                 String prioridades[] = new String[]{"Prioridad Baja", "Prioridad Media", "Prioridad Alta"};
                 ArrayAdapter<String> adapterArray = new ArrayAdapter<>(getContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, prioridades);
                 spinnerPrioridad.setAdapter(adapterArray);
+
                 spinnerPrioridad.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -101,7 +104,7 @@ public class FragmentoLista extends Fragment {
                 // datePicker
                 DatePicker datePicker = dialog.findViewById(R.id.datePicker);
 
-                // botones
+                // botones + listeners
                 Button btnCancelDialogo = dialog.findViewById(R.id.btnCancelDialogo);
                 Button btnAddDialogo = dialog.findViewById(R.id.btnAddDialogo);
 
@@ -118,7 +121,7 @@ public class FragmentoLista extends Fragment {
 
                         tarea.setTitulo(editTextTitulo.getText().toString());
                         tarea.setDescripcion(editTextDescripcion.getText().toString());
-                        tarea.setFecha(datePicker.getDayOfMonth()+ "-" + (datePicker.getMonth() + 1) + "-" + datePicker.getYear());
+                        tarea.setFecha(datePicker.getDayOfMonth() + "-" + (datePicker.getMonth() + 1) + "-" + datePicker.getYear());
                         tarea.setPrioridad(opcionSpinner);
 
                         dialog.dismiss();

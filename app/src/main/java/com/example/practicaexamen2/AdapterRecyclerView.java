@@ -1,11 +1,9 @@
 package com.example.practicaexamen2;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,9 +45,10 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         holder.fechaTLista.setText(item.getFecha());
         holder.descripcionTLista.setText(item.getDescripcion());
 
+        // Recoge la opcion spinner del fragmento y la comprueba, segun el dato seleccionado, se pondra una imagen
         String opcionSpinner = item.getPrioridad();
 
-        switch (opcionSpinner){
+        switch (opcionSpinner) {
             case "Prioridad Baja":
                 holder.imagePrioridadLista.setImageResource(R.drawable.icon_circle_green);
                 break;
@@ -64,16 +63,20 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         holder.imagePrioridadLista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // seleccionamos el id del item que queramos eliminar al pulsar sobre su imagen
                 int sId = item.getId();
+                // conseguimos la instancia de la base de datos
                 database = DataRoomDB.getInstance(context);
+                // ejecutamos el dao, en este caso, escogi eliminarlo en base al id
                 database.dataDao().deleteTarea(sId);
+                // limpiamos la lista, y volvemos a añadir los elementos restantes de la BBDD
                 tareaEntities.clear();
                 tareaEntities.addAll(database.dataDao().selectTareas());
+
                 Toast.makeText(context, "Tarea Eliminada", Toast.LENGTH_SHORT).show();
                 notifyDataSetChanged();
             }
         });
-
 
 
     }
@@ -83,10 +86,11 @@ public class AdapterRecyclerView extends RecyclerView.Adapter<AdapterRecyclerVie
         return tareaEntities.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView tituloTLista, fechaTLista, descripcionTLista;
         ImageView imagePrioridadLista;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
